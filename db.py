@@ -1,10 +1,12 @@
 import mysql.connector
 from mysql.connector import Error
+import streamlit as st
 mydb = mysql.connector.connect(
-    host = "localhost",
-    user = "root",
-    password = "admin",
-    database = "contacts_db"
+    host=st.secrets["mysql"]["host"],
+    port=st.secrets["mysql"]["port"],
+    user=st.secrets["mysql"]["user"],
+    password=st.secrets["mysql"]["password"],
+    database=st.secrets["mysql"]["database"]
 )
 mycursor = mydb.cursor()
 
