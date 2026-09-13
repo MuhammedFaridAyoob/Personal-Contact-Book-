@@ -14,7 +14,8 @@ mycursor = mydb.cursor()
 # create
 def create_db():
     mycursor = mydb.cursor()
-    mycursor.execute("USE contacts_db")
+    mycursor.execute(f"USE {st.secrets["mysql"]["database"]})
+)")
     mycursor.execute("""
     CREATE TABLE IF NOT EXISTS contacts(
     id INT AUTO_INCREMENT PRIMARY KEY ,
